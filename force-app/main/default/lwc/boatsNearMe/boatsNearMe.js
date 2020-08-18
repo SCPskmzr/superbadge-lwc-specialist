@@ -22,7 +22,7 @@ export default class BoatsNearMe extends LightningElement {
     @wire(getBoatsByLocation, { latitude: '$latitude', longitude: '$longitude', boatTypeId: '$boatTypeId' })
     wiredBoatsJSON({ error, data }) {
         if (data) {
-            this.createMapMarkers(data);
+            this.createMapMarkers(JSON.parse(data));
         } else if (error) {
             this.error = error;
             this.mapMarkers = [];
@@ -33,7 +33,7 @@ export default class BoatsNearMe extends LightningElement {
             this.dispatchEvent(errorMessage);
             this.isLoading = false;
         }
-
+        console.log(this.isLoading);
     }
 
     // Controls the isRendered property
@@ -59,8 +59,6 @@ export default class BoatsNearMe extends LightningElement {
 			}
         );
         
-        console.log("latitude: " + this.latitude);
-        console.log("longitude: " + this.longitude);
     }
 
     // Creates the map markers
@@ -85,7 +83,7 @@ export default class BoatsNearMe extends LightningElement {
             icon: ICON_STANDARD_USER
         });
 
-        this.mapMarkers = newMarkers;
         this.isLoading = false;
+        this.mapMarkers = newMarkers;
     }
 }
