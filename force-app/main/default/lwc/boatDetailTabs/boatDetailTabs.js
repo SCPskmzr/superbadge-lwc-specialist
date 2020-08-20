@@ -17,7 +17,7 @@ import BOATMC from "@salesforce/messageChannel/BoatMessageChannel__c";
 // Boat__c Schema Imports
 // import BOAT_ID_FIELD for the Boat Id
 // import BOAT_NAME_FIELD for the boat Name
-const BOAT_FIELDS = [BOAT_ID_FIELD, BOAT_NAME_FIELD];
+// const BOAT_FIELDS = [BOAT_ID_FIELD, BOAT_NAME_FIELD];
 
 export default class BoatDetailTabs extends LightningElement {
     subscription = null;
@@ -26,13 +26,13 @@ export default class BoatDetailTabs extends LightningElement {
 
     wiredRecord;
 
-    label = {
-        labelDetails,
-        labelReviews,
-        labelAddReview,
-        labelFullDetails,
-        labelPleaseSelectABoat,
-    };
+    // label = {
+    //     labelDetails,
+    //     labelReviews,
+    //     labelAddReview,
+    //     labelFullDetails,
+    //     labelPleaseSelectABoat,
+    // };
 
     // Decide when to show or hide the icon
     // returns 'utility:anchor' or null
@@ -61,6 +61,8 @@ export default class BoatDetailTabs extends LightningElement {
         }
         // Subscribe to the message channel to retrieve the recordID and assign it to boatId.
         this.subscribeMC();
+
+
     }
 
     subscribeMC() {
