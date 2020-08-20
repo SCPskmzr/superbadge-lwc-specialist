@@ -1,0 +1,9 @@
+<template>
+  <lightning-tabset if:true={boatId} variant="scoped">
+    <lightning-tab label="Details"></lightning-tab>
+    <lightning-tab label="Reviews"></lightning-tab>
+    <lightning-tab label="Add Review">
+      <c-boat-add-review-form record-id={boatId}></c-boat-add-review-form>
+    </lightning-tab>
+  </lightning-tabset>
+</template>
